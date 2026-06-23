@@ -1,0 +1,36 @@
+2026-06-23 14:39:24,756 INFO pipeline started
+2026-06-23 14:39:25,752 INFO Extracted data for EURUSD: 100 rows
+2026-06-23 14:39:26,428 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:39:27,140 INFO Extracted data for USDJPY: 100 rows
+2026-06-23 14:39:27,793 WARNING No data returned for AUDUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:39:28,626 INFO Extracted data for USDCAD: 100 rows
+2026-06-23 14:39:28,627 INFO Total records extracted: 300
+2026-06-23 14:39:28,680 INFO transformed done: 300 rows
+2026-06-23 14:39:29,507 INFO data loaded to database: 300 rows
+2026-06-23 14:50:27,528 INFO pipeline started
+2026-06-23 14:50:28,480 INFO Extracted data for EURUSD: 100 rows
+2026-06-23 14:50:29,221 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:50:29,968 INFO Extracted data for USDJPY: 100 rows
+2026-06-23 14:50:30,649 WARNING No data returned for AUDUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:50:31,395 INFO Extracted data for USDCAD: 100 rows
+2026-06-23 14:50:31,397 INFO Total records extracted: 300
+2026-06-23 14:50:31,434 INFO transformed done: 300 rows
+2026-06-23 14:50:31,652 INFO data loaded to database: 300 rows
+2026-06-23 14:54:08,008 INFO pipeline started
+2026-06-23 14:54:08,812 INFO Extracted data for EURUSD: 100 rows
+2026-06-23 14:54:09,550 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:54:10,464 INFO Extracted data for USDJPY: 100 rows
+2026-06-23 14:54:11,201 WARNING No data returned for AUDUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 14:54:12,083 INFO Extracted data for USDCAD: 100 rows
+2026-06-23 14:54:12,084 INFO Total records extracted: 300
+2026-06-23 14:54:12,099 INFO transformed done: 300 rows
+2026-06-23 14:54:12,504 INFO data loaded to database: 300 rows
+2026-06-23 15:02:25,814 INFO pipeline started
+2026-06-23 15:02:26,834 INFO Extracted data for EURUSD: 100 rows
+2026-06-23 15:02:27,569 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 15:02:28,495 INFO Extracted data for USDJPY: 100 rows
+2026-06-23 15:02:29,530 INFO Extracted data for AUDUSD: 100 rows
+2026-06-23 15:02:31,153 WARNING No data returned for USDCAD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-23 15:02:31,153 INFO Total records extracted: 300
+2026-06-23 15:02:31,195 INFO transformed done: 300 rows
+2026-06-23 15:02:31,446 INFO data loaded to database: 300 rows
