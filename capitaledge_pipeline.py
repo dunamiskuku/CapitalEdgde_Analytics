@@ -157,6 +157,8 @@ def transform_forex_data(records):
 
 # Loading
 def load(df):
+    engine = None
+
     try:
         db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
@@ -166,23 +168,94 @@ def load(df):
         # load dataframe to sql table
         df.to_sql('forex_prices', engine, if_exists='append', index=False)
 
+        
         logger.info(f"data loaded to database: {len(df)} rows")
-
+    
     except Exception as e:
         logger.error(
             f"Database load failed: {e}",
             exc_info=True
         )
         raise
-
+    finally:
+        if engine is not None:
+            engine.dispose()
+    
 def run_pipeline():
     logger.info("pipeline started")
     records = extract_forex_data(pairs)
     df = transform_forex_data(records)
     load(df)
 
-    df.to_csv('stock_prices.csv', index=False)
+    df.to_csv('forex_prices.csv', index=False)
     print("Data has been successfully saved to CSV file.")
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     run_pipeline()
+
+
+def get_last_loaded_dates(engine):
+
+    query = (
+        "SELECT symbol, MAX(datetime) AS last_loaded "
+        "FROM forex_prices GROUP BY symbol"
+    )
+    try:
+        watermarks = pd.read_sql(query, engine)
+        if watermarks.empty:
+            return {}
+
+        watermarks['last_loaded'] = pd.to_datetime(
+            watermarks['last_loaded'], utc=True
+        )
+        result = dict(zip(watermarks['symbol'], watermarks['last_loaded']))
+        logger.info(f"Existing watermarks: {result}")
+        return result
+
+    except Exception as e:
+        logger.warning(
+            f"Could not read watermarks (treating all rows as new): {e}"
+        )
+        return {}
+
+
+def filter_incremental(df, watermarks):
+    
+    if df.empty or not watermarks:
+        return df
+
+    row_watermark = df['symbol'].map(watermarks)
+    keep_mask = row_watermark.isna() | (df['datetime'] > row_watermark)
+
+    df_new = df[keep_mask].copy()
+    logger.info(
+        f"Incremental filter: kept {len(df_new)} of {len(df)} fetched rows"
+    )
+    return df_new
+
+
+def run_pipeline_incremental():
+    logger.info("incremental pipeline started")
+
+    db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
+    engine = create_engine(db_url)
+
+    records = extract_forex_data(pairs)
+    df = transform_forex_data(records)
+
+    watermarks = get_last_loaded_dates(engine)
+    df_new = filter_incremental(df, watermarks)
+
+    if df_new.empty:
+        logger.info("No new rows to load. Pipeline complete.")
+        print("No new data — database already up to date.")
+        return
+
+    load(df_new)
+
+    df_new.to_csv('forex_prices.csv', index=False)
+    print(f"Incremental load complete: {len(df_new)} new rows saved.")
+
+
+if __name__ == "__main__":
+    run_pipeline_incremental()  
