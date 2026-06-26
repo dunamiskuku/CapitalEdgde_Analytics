@@ -74,3 +74,325 @@
 2026-06-26 09:04:10,158 INFO Existing watermarks: {'USDJPY': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'USDCAD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'EURUSD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC')}
 2026-06-26 09:04:10,163 INFO Incremental filter: kept 6 of 300 fetched rows
 2026-06-26 09:04:10,303 INFO data loaded to database: 6 rows
+2026-06-26 12:53:21,461 INFO incremental pipeline started
+2026-06-26 12:53:22,901 INFO Extracted data for EURUSD: 100 rows
+2026-06-26 12:53:23,680 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-26 12:53:24,773 INFO Extracted data for USDJPY: 100 rows
+2026-06-26 12:53:26,674 INFO Extracted data for AUDUSD: 100 rows
+2026-06-26 12:53:28,540 INFO Extracted data for USDCAD: 100 rows
+2026-06-26 12:53:28,541 INFO Total records extracted: 400
+2026-06-26 12:53:28,670 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?resource=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'a56c63f5-7155-11f1-920b-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 12:53:30,880 INFO Response status: 201
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 11:53:30 GMT'
+    'ETag': '"0x8DED3798A7B8FD0"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'ea6ccd96-201f-0015-0d62-05af7b000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': 'a56c63f5-7155-11f1-920b-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 11:53:29 GMT'
+    'Content-Length': '0'
+2026-06-26 12:53:30,884 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?action=REDACTED&position=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'Content-Length': '51200'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/json'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'a6be2183-7155-11f1-9672-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2026-06-26 12:53:32,317 INFO Response status: 202
+Response headers:
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'ea6ccd98-201f-0015-0e62-05af7b000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': 'a6be2183-7155-11f1-9672-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 11:53:31 GMT'
+    'Content-Length': '0'
+2026-06-26 12:53:32,321 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?action=REDACTED&position=REDACTED&close=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'If-Match': '"0x8DED3798A7B8FD0"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'a799781c-7155-11f1-9b4f-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 12:53:32,560 INFO Response status: 200
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 11:53:31 GMT'
+    'ETag': '"0x8DED3798B857724"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'ea6ccd9e-201f-0015-1262-05af7b000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': 'a799781c-7155-11f1-9b4f-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 11:53:31 GMT'
+    'Content-Length': '0'
+2026-06-26 12:53:32,561 INFO Uploaded to Azure: capitaledge/raw/forex/dt=2026-06-26/raw_forex.json (51200 bytes)
+2026-06-26 12:53:32,571 INFO Request URL: 'https://capitaledgedatalake1.blob.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': 'a7bfab0f-7155-11f1-ad3d-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 12:53:33,369 INFO Response status: 206
+Response headers:
+    'Content-Length': '51200'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Fri, 26 Jun 2026 11:53:31 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DED3798B857724"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'f511f8c6-501e-0052-3e62-05c420000000'
+    'x-ms-client-request-id': 'a7bfab0f-7155-11f1-ad3d-fc15b4ec873b'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-access-tier': 'REDACTED'
+    'x-ms-access-tier-inferred': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Fri, 26 Jun 2026 11:53:32 GMT'
+2026-06-26 12:53:33,966 INFO transformed done: 400 rows
+2026-06-26 13:11:46,792 INFO incremental pipeline started
+2026-06-26 13:11:47,974 INFO Extracted data for EURUSD: 100 rows
+2026-06-26 13:11:48,714 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-26 13:11:49,479 INFO Extracted data for USDJPY: 100 rows
+2026-06-26 13:11:50,135 WARNING No data returned for AUDUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-26 13:11:50,889 INFO Extracted data for USDCAD: 100 rows
+2026-06-26 13:11:50,890 INFO Total records extracted: 300
+2026-06-26 13:11:51,000 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?resource=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '3676a63d-7158-11f1-a06d-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:51,834 INFO Response status: 201
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:51 GMT'
+    'ETag': '"0x8DED37C1ABC45A8"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'dad9224f-c01f-0050-4664-057a98000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '3676a63d-7158-11f1-a06d-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:50 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:51,839 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?action=REDACTED&position=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'Content-Length': '38600'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/json'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '36f68698-7158-11f1-9bce-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2026-06-26 13:11:52,136 INFO Response status: 202
+Response headers:
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'dad92253-c01f-0050-4a64-057a98000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '36f68698-7158-11f1-9bce-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:50 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:52,139 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json?action=REDACTED&position=REDACTED&close=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'If-Match': '"0x8DED37C1ABC45A8"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '37246b45-7158-11f1-9f91-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:52,303 INFO Response status: 200
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:51 GMT'
+    'ETag': '"0x8DED37C1B061514"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': 'dad92255-c01f-0050-4c64-057a98000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '37246b45-7158-11f1-9f91-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:50 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:52,305 INFO Uploaded to Azure: capitaledge/raw/forex/dt=2026-06-26/raw_forex.json (38600 bytes)
+2026-06-26 13:11:52,318 INFO Request URL: 'https://capitaledgedatalake1.blob.core.windows.net/capitaledge/raw/forex/dt%3D2026-06-26/raw_forex.json'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '373fbaa2-7158-11f1-914b-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:53,048 INFO Response status: 206
+Response headers:
+    'Content-Length': '38600'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:51 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DED37C1B061514"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'e0b3a7c6-c01e-001d-6664-05b574000000'
+    'x-ms-client-request-id': '373fbaa2-7158-11f1-914b-fc15b4ec873b'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-access-tier': 'REDACTED'
+    'x-ms-access-tier-inferred': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Fri, 26 Jun 2026 12:11:52 GMT'
+2026-06-26 13:11:53,260 INFO transformed done: 300 rows
+2026-06-26 13:11:53,823 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/staged/forex/dt%3D2026-06-26/forex.parquet?resource=REDACTED'
+Request method: 'PUT'
+Request headers:
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '38255e60-7158-11f1-bdf8-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:54,635 INFO Response status: 201
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:53 GMT'
+    'ETag': '"0x8DED37C1C69BBD0"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': '66d6c69d-301f-006b-6064-053f3c000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '38255e60-7158-11f1-bdf8-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:53 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:54,639 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/staged/forex/dt%3D2026-06-26/forex.parquet?action=REDACTED&position=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'Content-Length': '14094'
+    'x-ms-version': 'REDACTED'
+    'Content-Type': 'application/json'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '38a1e642-7158-11f1-8bbc-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+2026-06-26 13:11:54,794 INFO Response status: 202
+Response headers:
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': '66d6c69f-301f-006b-6164-053f3c000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '38a1e642-7158-11f1-8bbc-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:53 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:54,800 INFO Request URL: 'https://capitaledgedatalake1.dfs.core.windows.net/capitaledge/staged/forex/dt%3D2026-06-26/forex.parquet?action=REDACTED&position=REDACTED&close=REDACTED'
+Request method: 'PATCH'
+Request headers:
+    'If-Match': '"0x8DED37C1C69BBD0"'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/json'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '38ba3d90-7158-11f1-b87d-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:54,969 INFO Response status: 200
+Response headers:
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:54 GMT'
+    'ETag': '"0x8DED37C1C9D2F64"'
+    'Server': 'Windows-Azure-HDFS/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-server-encrypted': 'REDACTED'
+    'x-ms-request-id': '66d6c6a0-301f-006b-6264-053f3c000000'
+    'x-ms-version': 'REDACTED'
+    'x-ms-client-request-id': '38ba3d90-7158-11f1-b87d-fc15b4ec873b'
+    'Date': 'Fri, 26 Jun 2026 12:11:53 GMT'
+    'Content-Length': '0'
+2026-06-26 13:11:54,972 INFO Uploaded to Azure: capitaledge/staged/forex/dt=2026-06-26/forex.parquet (14094 bytes)
+2026-06-26 13:11:54,986 INFO Request URL: 'https://capitaledgedatalake1.blob.core.windows.net/capitaledge/staged/forex/dt%3D2026-06-26/forex.parquet'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-dfs/12.25.0 Python/3.13.12 (Windows-10-10.0.21996-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '38d6cf90-7158-11f1-8e37-fc15b4ec873b'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2026-06-26 13:11:55,705 INFO Response status: 206
+Response headers:
+    'Content-Length': '14094'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Fri, 26 Jun 2026 12:11:54 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DED37C1C9D2F64"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': 'c87e9c2f-701e-0055-0e64-05a843000000'
+    'x-ms-client-request-id': '38d6cf90-7158-11f1-8e37-fc15b4ec873b'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-access-tier': 'REDACTED'
+    'x-ms-access-tier-inferred': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Fri, 26 Jun 2026 12:11:54 GMT'
+2026-06-26 13:11:57,228 INFO Existing watermarks: {'USDJPY': Timestamp('2026-06-25 00:00:00+0000', tz='UTC'), 'USDCAD': Timestamp('2026-06-25 00:00:00+0000', tz='UTC'), 'EURUSD': Timestamp('2026-06-25 00:00:00+0000', tz='UTC')}
+2026-06-26 13:11:57,237 INFO Incremental filter: kept 0 of 300 fetched rows
+2026-06-26 13:11:57,237 INFO No new rows to load. Pipeline complete.

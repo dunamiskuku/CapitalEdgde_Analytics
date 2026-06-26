@@ -1,5 +1,7 @@
 # CapitalEdge forex pipeline
 # ETL: extract from API -> stage in Azure -> transform -> incrementally load into Postgres
+# pip install azure-storage-file-datalake
+# pip install pyarrow
 
 # Import necessary libraries
 import requests
@@ -12,7 +14,7 @@ import io
 import json                       
 import logging
 
-# AZURE: the Azure Data Lake client (pip install azure-storage-file-datalake)
+# AZURE: the Azure Data Lake client 
 from azure.storage.filedatalake import DataLakeServiceClient
 
 # set up logging
@@ -158,7 +160,7 @@ def read_raw_from_azure(path):
 
 
 def stage_clean_to_azure(df):
-    # Save the cleaned dataframe as parquet in the staged zone. Returns the file path.
+    # Save the cleaned dataframe as parquet in the staged zone. Returns the file path. 
     today = pd.Timestamp.utcnow().strftime("%Y-%m-%d")
     path = f"staged/forex/dt={today}/forex.parquet"
     buffer = io.BytesIO()            # an in-memory file
