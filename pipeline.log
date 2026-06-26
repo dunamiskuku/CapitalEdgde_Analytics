@@ -63,3 +63,14 @@
 2026-06-24 22:51:17,479 INFO Existing watermarks: {'USDJPY': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'USDCAD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'EURUSD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC')}
 2026-06-24 22:51:17,484 INFO Incremental filter: kept 0 of 300 fetched rows
 2026-06-24 22:51:17,484 INFO No new rows to load. Pipeline complete.
+2026-06-26 09:04:04,670 INFO incremental pipeline started
+2026-06-26 09:04:05,808 INFO Extracted data for EURUSD: 100 rows
+2026-06-26 09:04:06,505 WARNING No data returned for GBPUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-26 09:04:07,301 INFO Extracted data for USDJPY: 100 rows
+2026-06-26 09:04:08,159 WARNING No data returned for AUDUSD. Response: {'Information': 'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second). You may subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to lift the free key rate limit (25 requests per day), raise the per-second burst limit, and instantly unlock all premium endpoints'}
+2026-06-26 09:04:08,848 INFO Extracted data for USDCAD: 100 rows
+2026-06-26 09:04:08,848 INFO Total records extracted: 300
+2026-06-26 09:04:08,893 INFO transformed done: 300 rows
+2026-06-26 09:04:10,158 INFO Existing watermarks: {'USDJPY': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'USDCAD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC'), 'EURUSD': Timestamp('2026-06-23 00:00:00+0000', tz='UTC')}
+2026-06-26 09:04:10,163 INFO Incremental filter: kept 6 of 300 fetched rows
+2026-06-26 09:04:10,303 INFO data loaded to database: 6 rows

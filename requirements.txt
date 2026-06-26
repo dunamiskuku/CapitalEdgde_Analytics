@@ -1,5 +1,9 @@
 requests
 pandas
-psycopg2
-sqlalchemy
+pyarrow
+psycopg2-binary
+SQLAlchemy
 python-dotenv
+azure-storage-file-datalake
+apache-airflow>=2.0
+apache-airflow-providers-postgres
