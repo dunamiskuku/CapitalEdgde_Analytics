@@ -1,5 +1,5 @@
 # CapitalEdge forex pipeline
-# ETL: extract from API -> stage in Azure -> transform -> incrementally load into Postgres
+# ETL: extract from API - stage in Azure - transform - incrementally load into Postgres
 # pip install azure-storage-file-datalake
 # pip install pyarrow
 
@@ -14,7 +14,7 @@ import io
 import json                       
 import logging
 
-# AZURE: the Azure Data Lake client 
+# Azure Data Lake client 
 from azure.storage.filedatalake import DataLakeServiceClient
 
 # set up logging
@@ -130,7 +130,6 @@ def get_datalake_client():
 
 
 def upload_to_azure(path, data_bytes):
-    # Write bytes to a file at `path` inside the container. Overwrites if it exists.
     service = get_datalake_client()
     file_system = service.get_file_system_client(ADLS_FILE_SYSTEM)
     file_client = file_system.get_file_client(path)
@@ -139,7 +138,6 @@ def upload_to_azure(path, data_bytes):
 
 
 def download_from_azure(path):
-    # Read a file back from `path` inside the container and return its bytes.
     service = get_datalake_client()
     file_system = service.get_file_system_client(ADLS_FILE_SYSTEM)
     file_client = file_system.get_file_client(path)
@@ -147,30 +145,28 @@ def download_from_azure(path):
 
 
 def stage_raw_to_azure(records):
-    # Save raw extracted records as JSON in the raw zone. Returns the file path.
-    today = pd.Timestamp.utcnow().strftime("%Y-%m-%d")
+    today = pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d")
     path = f"raw/forex/dt={today}/raw_forex.json"
     upload_to_azure(path, json.dumps(records).encode("utf-8"))
     return path
 
 
 def read_raw_from_azure(path):
-    # Read the raw JSON back out of the raw zone as a Python list.
+    
     return json.loads(download_from_azure(path).decode("utf-8"))
 
 
 def stage_clean_to_azure(df):
-    # Save the cleaned dataframe as parquet in the staged zone. Returns the file path. 
-    today = pd.Timestamp.utcnow().strftime("%Y-%m-%d")
+    today = pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d")
     path = f"staged/forex/dt={today}/forex.parquet"
-    buffer = io.BytesIO()            # an in-memory file
+    buffer = io.BytesIO()            
     df.to_parquet(buffer, index=False)
     upload_to_azure(path, buffer.getvalue())
     return path
 
 
 def read_clean_from_azure(path):
-    # Read the cleaned parquet back out of the staged zone as a dataframe.
+    
     return pd.read_parquet(io.BytesIO(download_from_azure(path)))
 
 
@@ -298,21 +294,21 @@ def run_pipeline_incremental():
     db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
     engine = create_engine(db_url)
 
-    # 1. EXTRACT — pull the data from the Alpha Vantage API
+    # EXTRACT — pull the data from the Alpha Vantage API
     records = extract_forex_data(pairs)
 
-    # 2. STAGE IN AZURE (raw) — save the untouched API data, read it back        
+    # STAGE IN AZURE (raw) — save the untouched API data, read it back        
     raw_path = stage_raw_to_azure(records)                                       
     records = read_raw_from_azure(raw_path)                                      
 
-    # 3. TRANSFORM — clean and type the data
+    # TRANSFORM — clean and type the data
     df = transform_forex_data(records)
 
-    # 4. STAGE IN AZURE (clean) — save the cleaned dataframe, read it back        # >>> AZURE
-    clean_path = stage_clean_to_azure(df)                                        # >>> AZURE
-    df = read_clean_from_azure(clean_path)                                       # >>> AZURE
+    # STAGE IN AZURE (clean) — save the cleaned dataframe, read it back        
+    clean_path = stage_clean_to_azure(df)                                        
+    df = read_clean_from_azure(clean_path)                                       
 
-    # 5. INCREMENTAL LOAD — keep only rows newer than what's already in the DB
+    # INCREMENTAL LOAD — keep only rows newer than what's already in the DB
     watermarks = get_last_loaded_dates(engine)
     df_new = filter_incremental(df, watermarks)
 
@@ -340,7 +336,7 @@ if AIRFLOW_AVAILABLE:
 
     @dag(
         dag_id="capitaledge_forex_pipeline",
-        schedule="0 6 * * 1-5",                     # run 06:00 every weekday
+        schedule="0 6 * * 1-5",                    
         start_date=datetime(2026, 6, 27),
         catchup=False,
         tags=["capitaledge", "forex", "azure"],
@@ -349,24 +345,24 @@ if AIRFLOW_AVAILABLE:
 
         @task()
         def extract():
-            # Step 1 — calls your extract_forex_data()
+            
             return extract_forex_data(pairs)
 
         @task()
         def stage_raw(records):
-            # Step 2 — calls your stage_raw_to_azure(), returns the Azure file path
+            
             return stage_raw_to_azure(records)
 
         @task()
         def transform(raw_path):
-            # Step 3 — read raw from Azure, transform, save clean to Azure
+            
             records = read_raw_from_azure(raw_path)
             df = transform_forex_data(records)
             return stage_clean_to_azure(df)
 
         @task()
         def incremental_load(clean_path):
-            # Step 4 + 5 — read clean from Azure, filter to new rows, load to Postgres
+            
             df = read_clean_from_azure(clean_path)
 
             db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
@@ -381,7 +377,7 @@ if AIRFLOW_AVAILABLE:
             load(df_new)
 
      
-        # extract -> stage_raw -> transform -> incremental_load
+        # extract - stage_raw - transform - incremental_load
         raw_path = stage_raw(extract())
         clean_path = transform(raw_path)
         incremental_load(clean_path) 
